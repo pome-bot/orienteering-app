@@ -10,7 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_13_091336) do
+ActiveRecord::Schema.define(version: 2020_08_13_093029) do
+
+  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "control_id", null: false
+    t.bigint "user_id", null: false
+    t.string "answer", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["control_id", "user_id"], name: "index_answers_on_control_id_and_user_id", unique: true
+    t.index ["control_id"], name: "index_answers_on_control_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "controls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "orienteering_id", null: false
+    t.string "name", null: false
+    t.string "question", null: false
+    t.string "answer", null: false
+    t.string "place_x", null: false
+    t.string "place_y", null: false
+    t.integer "point", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["orienteering_id"], name: "index_controls_on_orienteering_id"
+  end
+
+  create_table "orienteering_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "orienteering_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["orienteering_id"], name: "index_orienteering_users_on_orienteering_id"
+    t.index ["user_id"], name: "index_orienteering_users_on_user_id"
+  end
+
+  create_table "orienteerings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "host_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["host_id"], name: "index_orienteerings_on_host_id"
+    t.index ["name"], name: "index_orienteerings_on_name", unique: true
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -25,4 +67,9 @@ ActiveRecord::Schema.define(version: 2020_08_13_091336) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "controls"
+  add_foreign_key "answers", "users"
+  add_foreign_key "controls", "orienteerings"
+  add_foreign_key "orienteering_users", "orienteerings"
+  add_foreign_key "orienteering_users", "users"
 end

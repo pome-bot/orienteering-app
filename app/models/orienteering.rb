@@ -1,0 +1,2 @@
+class Orienteering < ApplicationRecord
+end

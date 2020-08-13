@@ -1,0 +1,2 @@
+class OrienteeringUser < ApplicationRecord
+end
