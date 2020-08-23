@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_093029) do
     t.bigint "orienteering_id", null: false
     t.string "name", null: false
     t.string "question", null: false
+    t.string "choice"
     t.string "answer", null: false
     t.float "position_lat", null: false
     t.float "position_lng", null: false
