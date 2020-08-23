@@ -6,8 +6,8 @@ class CreateControls < ActiveRecord::Migration[6.0]
       t.string :name, null: false
       t.string :question, null: false
       t.string :answer, null: false
-      t.string :place_x, null: false
-      t.string :place_y, null: false
+      t.float :position_lat, null: false
+      t.float :position_lng, null: false
       t.integer :point, null: false
 
       t.timestamps
