@@ -1,0 +1,156 @@
+.orienteering-index-contents{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 12px;
+  h2{
+    font-size: 24px;
+  }
+  .table-div{
+    padding: 12px;
+    width: 100%;
+    &__child{
+      display: flex;
+      justify-content: center;
+      overflow: auto;
+      table{
+        th, td{
+          border: 1px solid #440000;
+          padding: 8px;
+          text-align: center;
+          min-width: 40px;
+        }
+        td.orienteering{
+          background-color: #FFDBC9;
+          padding: 0;
+          a{
+            padding: 8px;
+          }
+        }
+      }
+    }
+  }
+  a{
+    margin-top: 12px;
+    margin-bottom: 24px;
+    button{
+      font-size: 18px;
+      padding: 12px;
+    }
+  }
+}
+
+.orienteering-show-contents{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 12px;
+  h2{
+    font-size: 24px;
+  }
+  .table-div{
+    margin-bottom: 12px;
+    padding: 12px;
+    width: 100%;
+    &__child{
+      display: flex;
+      justify-content: center;
+      overflow: auto;
+      table{
+        th, td{
+          border: 1px solid #440000;
+          padding: 8px;
+          text-align: center;
+          min-width: 40px;
+        }
+        td.control{
+          background-color: #FFDBC9;
+          padding: 0;
+          a{
+            padding: 8px;
+          }
+        }
+      }
+    }
+  }
+  .div-for-space{
+    height: 12px;
+  }
+  .div-only-host{
+    border-top: 2px solid #440000;
+    padding-top: 12px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    a{
+      margin-top: 12px;
+      margin-bottom: 24px;
+      button{
+        font-size: 18px;
+        padding: 12px;
+      }
+    }
+    h3{
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+    ul.control-list__edit{
+      margin-bottom: 12px;
+      li{
+        font-size: 17px;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+
+.orienteering-new-contents, .orienteering-edit-contents{
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  form{
+    padding-top: 12px;
+    .orienteering-form__field{
+      label{
+        display: block;
+      }
+      input{
+        width: 80vw;
+      }
+    }
+    .orienteering-form__actions{
+      margin: 24px 0;
+      display: flex;
+      justify-content: center;
+      input{
+        padding: 8px;
+      }
+    }
+  }
+}
+
+.orienteering-result-contents{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 12px;
+  h2{
+    font-size: 24px;
+  }
+  .table-div{
+    padding: 12px;
+    width: 100%;
+    &__child{
+      table{
+        th, td{
+          border: 1px solid #440000;
+          padding: 8px;
+          text-align: center;
+          min-width: 40px;
+        }
+      }
+    }
+  }
+}

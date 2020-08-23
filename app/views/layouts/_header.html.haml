@@ -1,0 +1,8 @@
+%header.header-after-signin
+  .header-after-signin__contents
+    .left
+      = link_to root_path do
+        %h1= current_user.name
+    .right
+      = link_to user_path(current_user.id), class: "a-tag__icon" do
+        = icon('fas', 'cog', class: "icon-cog")

@@ -2,11 +2,13 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-* { box-sizing: border-box; }
-a { text-decoration: none; color: black; cursor: pointer;}
+*{ box-sizing: border-box; }
+a{ text-decoration: none; color: black; cursor: pointer;}
+#map{ height: 400px; width: 100%; }
 
 @import "modules/header";
 @import "modules/footer";
 @import "modules/wrapper";
 @import "modules/devise";
+@import "modules/orienteering";
 

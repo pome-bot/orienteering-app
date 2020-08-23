@@ -1,5 +1,60 @@
+header.header-after-signin{
+  .header-after-signin__contents{
+    padding: 12px;
+    background-color: #440000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left{
+      h1{
+        font-size: 18px;
+        color: white;
+      }
+    }
+    .right{
+      a.a-tag__icon{
+        .icon-cog{
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+header.header_orienteering{
+  .header_orienteering__contents{
+    border-bottom: 2px solid #440000;
+    border-right: 2px solid #440000;
+    border-left: 2px solid #440000;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left{
+      h1{
+        font-size: 18px;
+        color: #440000;
+      }
+    }
+    .right{
+      display: flex;
+      align-items: center;
+      h1{
+        font-size: 18px;
+        color: #440000;
+      } 
+      a.a-tag__icon{
+        margin-left: 4px;
+        .icon-cog{
+          color: #440000;
+        }
+      }
+    }
+  }
+}
+
 header.header-before-signin{
-  padding: 10px;
+  padding: 12px;
   background-color: #440000;
   h1{
     font-size: 32px;
