@@ -1,0 +1,2 @@
+class OrienteeringsController < ApplicationController
+end
