@@ -8,16 +8,19 @@ controls/edit
     = f.text_field :name, class: 'setting-group-form__input', placeholder: 'input control name'
   .setting-group-form__field
     = f.label :question, "question", class: 'setting-group-form__label'
-    = f.text_area :question, class: 'setting-group-form__input', placeholder: 'input question', size: "50x10"
+    = f.text_area :question, class: 'setting-group-form__input', placeholder: 'input question', size: "20x3"
+  .setting-group-form__field
+    = f.label :choice, "choices", class: 'setting-group-form__label'
+    = f.text_area :choice, class: 'setting-group-form__input', placeholder: 'input question', size: "20x5"
   .setting-group-form__field
     = f.label :answer, "answer", class: 'setting-group-form__label'
     = f.text_field :answer, class: 'setting-group-form__input', placeholder: 'input answer'
   .setting-group-form__field
-    = f.label :position_x, "position_x", class: 'setting-group-form__label'
-    = f.text_field :position_x, class: 'setting-group-form__input'
+    = f.label :position_lat, "position_lat", class: 'setting-group-form__label'
+    = f.text_field :position_lat, class: 'setting-group-form__input'
   .setting-group-form__field
-    = f.label :position_y, "position_y", class: 'setting-group-form__label'
-    = f.text_field :position_y, class: 'setting-group-form__input'
+    = f.label :position_lng, "position_lng", class: 'setting-group-form__label'
+    = f.text_field :position_lng, class: 'setting-group-form__input'
   .setting-group-form__field
     = f.label :point, "point", class: 'setting-group-form__label'
     = f.text_field :point, class: 'setting-group-form__input'
@@ -39,8 +42,8 @@ controls/edit
 #map
 
 
-- lat = @control.position_y
-- lng = @control.position_x
+- lat = @control.position_lat
+- lng = @control.position_lng
 
 :javascript
   let lat = parseFloat('#{lat}');
@@ -82,8 +85,8 @@ controls/edit
     marker.setMap(null);
     marker = new google.maps.Marker({position: latlng, map: map});
 
-    $("#control_position_x").val(latlng.lng());
-    $("#control_position_y").val(latlng.lat());
+    $("#control_position_lat").val(latlng.lat());
+    $("#control_position_lng").val(latlng.lng());
   }
 
 

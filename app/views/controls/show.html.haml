@@ -3,6 +3,7 @@ controls/show
 
 %p= "name: #{@control.name}"
 %p= "question: #{@control.question}"
+%p= "choices: #{@control.choice}"
 %p= "point: #{@control.point}"
 
 = form_with model: [@orienteering, @control, @answer], local: true do |f|
@@ -24,8 +25,8 @@ controls/show
 
 #map
 
-- lat = @control.position_y
-- lng = @control.position_x
+- lat = @control.position_lat
+- lng = @control.position_lng
 
 :javascript
   let lat = parseFloat('#{lat}');

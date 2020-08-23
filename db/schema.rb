@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2020_08_13_093029) do
     t.string "question", null: false
     t.string "choice"
     t.string "answer", null: false
-    t.float "position_lat", null: false
-    t.float "position_lng", null: false
+    t.string "position_lat", null: false
+    t.string "position_lng", null: false
     t.integer "point", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

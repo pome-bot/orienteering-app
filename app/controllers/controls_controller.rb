@@ -44,7 +44,7 @@ class ControlsController < ApplicationController
   private
 
   def control_params
-    params.require(:control).permit(:name, :question, :answer, :position_x, :position_y, :point)
+    params.require(:control).permit(:name, :question, :choice, :answer, :position_lat, :position_lng, :point)
   end
 
 end
