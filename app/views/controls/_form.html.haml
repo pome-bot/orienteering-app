@@ -1,0 +1,29 @@
+= form_with model: [orienteering, control], local: true do |f|
+  .control-form__field
+    = f.label :name, "Control name", class: 'control-form__label'
+    = f.text_field :name, class: 'control-form__input', placeholder: 'input control name'
+  .control-form__field
+    = f.label :question, "Question", class: 'control-form__label'
+    = f.text_area :question, class: 'control-form__input', placeholder: 'input question'
+  .control-form__field
+    = f.label :choice, "Choices", class: 'control-form__label'
+    = f.text_area :choice, class: 'control-form__input', placeholder: 'input choices', size: "20x5"
+  .control-form__field
+    = f.label :answer, "Answer", class: 'control-form__label'
+    = f.text_field :answer, class: 'control-form__input', placeholder: 'input answer'
+  .control-form__field
+    = f.label :point, "Point", class: 'control-form__label'
+    = f.text_field :point, class: 'control-form__input', placeholder: 'input point'
+  .control-form__field
+    = f.label :position_lat, "Position_lat", class: 'control-form__label'
+    = f.text_field :position_lat, class: 'control-form__input input-gray', readonly: ""
+  .control-form__field
+    = f.label :position_lng, "Position_lng", class: 'control-form__label'
+    = f.text_field :position_lng, class: 'control-form__input input-gray', readonly: ""
+  .control-form__actions
+    = f.submit class: 'control-form__button'
+
+#floating-panel
+  %input{id: "address", type: "textbox"}
+  %input{id: "submit", type: "button", value: "Search"}
+#map

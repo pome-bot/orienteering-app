@@ -23,23 +23,14 @@
                 - if control.answers.where(user_id: current_user.id).present?
                   %span<>Done
     #map
-    .div-for-space
     - if @orienteering.host_id == current_user.id
       .div-only-host
         %h2<>Host menu
         = link_to new_orienteering_control_path(@orienteering.id) do
           %button<>Create control
-        %h3<>Edit
-        %ul.control-list__edit
-          - @controls.each_with_index do |control, i|
-            = link_to edit_orienteering_control_path(@orienteering.id, control.id) do
-              %li
-                %span= i+1
-                %span= control.name
         = link_to result_orienteering_path(@orienteering.id) do
           %button<>Result
 = render "layouts/footer"
-
 
 :javascript
   let lat = parseFloat('#{@lat}');

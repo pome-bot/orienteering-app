@@ -53,6 +53,35 @@ header.header_orienteering{
   }
 }
 
+header.header_control{
+  .header_control__contents{
+    padding: 12px;
+    background-color: #440000;
+    border-right: 2px solid #440000;
+    border-left: 2px solid #440000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left{
+      margin-left: 8px;
+      h1{
+        font-size: 18px;
+        color: white;
+      }
+    }
+    .right{
+      display: flex;
+      align-items: center;
+      a.a-tag__icon{
+        margin-left: 4px;
+        .icon-cog{
+          color: white;
+        }
+      }
+    }
+  }
+}
+
 header.header-before-signin{
   padding: 12px;
   background-color: #440000;

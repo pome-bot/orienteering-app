@@ -73,9 +73,6 @@
       }
     }
   }
-  .div-for-space{
-    height: 12px;
-  }
   .div-only-host{
     border-top: 2px solid #440000;
     padding-top: 12px;
@@ -85,21 +82,10 @@
     flex-direction: column;
     a{
       margin-top: 12px;
-      margin-bottom: 24px;
+      margin-bottom: 12px;
       button{
         font-size: 18px;
         padding: 12px;
-      }
-    }
-    h3{
-      font-size: 20px;
-      margin-bottom: 4px;
-    }
-    ul.control-list__edit{
-      margin-bottom: 12px;
-      li{
-        font-size: 17px;
-        margin-bottom: 4px;
       }
     }
   }

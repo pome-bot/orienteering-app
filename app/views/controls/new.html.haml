@@ -1,47 +1,10 @@
-%script{:defer => "", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyAk3yZOiqYz38KM80EH9LxlDW1mrUAuCBI&callback=initMap&libraries=&v=weekly"}
-controls/new
-
-
-= form_with model: [@orienteering, @control], local: true do |f|
-  .setting-group-form__field
-    = f.label :name, "Control name", class: 'setting-group-form__label'
-    = f.text_field :name, class: 'setting-group-form__input', placeholder: 'input control name'
-  .setting-group-form__field
-    = f.label :question, "question", class: 'setting-group-form__label'
-    = f.text_area :question, class: 'setting-group-form__input', placeholder: 'input question', size: "20x3"
-  .setting-group-form__field
-    = f.label :choice, "choices", class: 'setting-group-form__label'
-    = f.text_area :choice, class: 'setting-group-form__input', placeholder: 'input question', size: "20x5"
-  .setting-group-form__field
-    = f.label :answer, "answer", class: 'setting-group-form__label'
-    = f.text_field :answer, class: 'setting-group-form__input', placeholder: 'input answer'
-  .setting-group-form__field
-    = f.label :position_lat, "position_lat", class: 'setting-group-form__label'
-    = f.text_field :position_lat, class: 'setting-group-form__input', value: "139.7667767", readonly: ""
-  .setting-group-form__field
-    = f.label :position_lng, "position_lng", class: 'setting-group-form__label'
-    = f.text_field :position_lng, class: 'setting-group-form__input', value: "35.6812584", readonly: ""
-  .setting-group-form__field
-    = f.label :point, "point", class: 'setting-group-form__label'
-    = f.text_field :point, class: 'setting-group-form__input'
-  .setting-group-form__field
-    = f.submit class: 'setting-group-form__button'
-
-:plain
-  <style>
-    #map{
-      height: 400px;
-    }
-  </style>
-
-%br/
-
-#floating-panel
-  %input{id: "address", type: "textbox"}
-  %input{id: "submit", type: "button", value: "Geocode"}
-#map
-
-%p#latlng
+= render "layouts/google_map_api"
+= render "layouts/header"
+= render partial: "layouts/header_orienteering", locals: { orienteering: @orienteering }
+.wrapper
+  .control-new-contents
+    = render partial: "form", locals: { orienteering: @orienteering, control: @control }
+= render "layouts/footer"
 
 :javascript
   let map;
@@ -84,6 +47,3 @@ controls/new
     $("#control_position_lat").val(latlng.lat());
     $("#control_position_lng").val(latlng.lng());
   }
-
-
-

@@ -1,0 +1,9 @@
+%header.header_control
+  .header_control__contents
+    .left
+      = link_to orienteering_control_path(orienteering.id, control.id) do
+        %h1= control.name
+    .right
+      - if orienteering.host_id == current_user.id
+        = link_to edit_orienteering_control_path(orienteering.id, control.id), class: "a-tag__icon" do
+          = icon('fas', 'cog', class: "icon-cog")
