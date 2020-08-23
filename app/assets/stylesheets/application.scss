@@ -3,3 +3,10 @@
 @import "font-awesome";
 
 * { box-sizing: border-box; }
+a { text-decoration: none; color: black; cursor: pointer;}
+
+@import "modules/header";
+@import "modules/footer";
+@import "modules/wrapper";
+@import "modules/devise";
+
