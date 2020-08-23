@@ -1,0 +1,87 @@
+%script{:defer => "", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyAk3yZOiqYz38KM80EH9LxlDW1mrUAuCBI&callback=initMap&libraries=&v=weekly"}
+
+orienteerings/show
+%br
+
+%p= @orienteering.name
+%p= "host: #{@orienteering.host.name}"
+
+- if @orienteering.host_id == current_user.id
+  = link_to new_orienteering_control_path(@orienteering.id) do
+    %button<>Create control
+
+%br
+%br
+
+
+- @controls.each_with_index do |control, i|
+  = link_to orienteering_control_path(@orienteering.id, control.id) do
+    = i+1
+    - if control.answers.where(user_id: current_user.id).present?
+      %span
+        Done
+    = control.name
+    = control.point
+  %br
+
+%br
+%br
+
+#map
+
+%br
+%br
+
+- if @orienteering.host_id == current_user.id
+  %p<>Edit
+  - @controls.each_with_index do |control, i|
+    = link_to edit_orienteering_control_path(@orienteering.id, control.id) do
+      = i+1
+      = control.name
+    %br
+  %br
+  = link_to "Result", result_orienteering_path(@orienteering.id)
+
+:plain
+  <style>
+    #map{
+      height: 400px;
+    }
+  </style>
+
+:javascript
+  let lat = parseFloat('#{@lat}');
+  let lng = parseFloat('#{@lng}');
+
+  let location_lats = JSON.parse('#{raw @array_lats}');
+  let location_lngs = JSON.parse('#{raw @array_lngs}');
+  let locations = [];
+  let labels = [];
+
+  for (let i=0; i<location_lats.length; i++) {
+    locations.push({lat: parseFloat(location_lats[i]), lng: parseFloat(location_lngs[i])});
+    labels.push(String(i+1));
+  }
+
+  let map;
+  let markers;
+  let labelss = '1BCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 16,
+    center: { lat: lat, lng: lng }
+    });
+
+    markers = locations.map(function(location, i) {
+      return new google.maps.Marker({
+        position: location,
+        map: map, // add
+        label: labels[i]
+      });
+    });
+  }
+
+
+
+
