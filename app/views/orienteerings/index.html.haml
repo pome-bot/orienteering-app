@@ -1,0 +1,15 @@
+orienteerings/index
+%br
+
+= link_to new_orienteering_path do
+  %button<>create orienteering
+
+%br
+
+- @orienteerings.each do |o|
+  = link_to orienteering_path(o.id) do
+    %p= "name: #{o.name}, host: #{o.host.name}"
+
+%br
+
+= link_to "users#show", user_path(current_user.id)
