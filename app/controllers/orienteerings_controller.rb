@@ -51,8 +51,8 @@ class OrienteeringsController < ApplicationController
 
   def set_latlng(controls)
     if controls.present?
-      @lat = controls.first.position_y
-      @lng = controls.first.position_x
+      @lat = controls.first.position_lat
+      @lng = controls.first.position_lng
     else # tokyo sta.
       @lat = 35.6812584  
       @lng = 139.7667767
@@ -61,8 +61,8 @@ class OrienteeringsController < ApplicationController
     @array_lats = []
     @array_lngs = []
     controls.each do |control|
-      @array_lats << control.position_y
-      @array_lngs << control.position_x
+      @array_lats << control.position_lat
+      @array_lngs << control.position_lng
     end
   end
 
