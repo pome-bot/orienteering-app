@@ -12,11 +12,13 @@
     &__child{
       overflow: auto;
       table{
+        margin: 0 auto;
         th, td{
           border: 1px solid #440000;
           padding: 8px;
           text-align: center;
           min-width: 40px;
+          white-space: nowrap;
         }
         td.orienteering{
           background-color: #FFDBC9;
@@ -53,11 +55,13 @@
     &__child{
       overflow: auto;
       table{
+        margin: 0 auto;
         th, td{
           border: 1px solid #440000;
           padding: 8px;
           text-align: center;
           min-width: 40px;
+          white-space: nowrap;
         }
         td.control{
           background-color: #FFDBC9;
@@ -144,12 +148,15 @@
     padding: 12px;
     width: 100%;
     &__child{
+      overflow: auto;
       table{
+        margin: 0 auto;
         th, td{
           border: 1px solid #440000;
           padding: 8px;
           text-align: center;
           min-width: 40px;
+          white-space: nowrap;
         }
       }
     }
