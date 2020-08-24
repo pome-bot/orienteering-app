@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_093029) do
   create_table "orienteerings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "host_id", null: false
+    t.datetime "opendate_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["host_id"], name: "index_orienteerings_on_host_id"

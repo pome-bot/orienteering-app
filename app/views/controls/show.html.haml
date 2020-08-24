@@ -10,7 +10,7 @@
       %p= "Question:"
       %p.indent= @control.question
       %p= "Choices:"
-      %p.indent= @control.choice
+      %p.indent.choice= @control.choice
       %p= "Point:"
       %p.indent= @control.point
     = form_with model: [@orienteering, @control, @answer], local: true do |f|

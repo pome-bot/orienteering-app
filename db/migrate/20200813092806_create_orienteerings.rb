@@ -6,6 +6,7 @@ class CreateOrienteerings < ActiveRecord::Migration[6.0]
       t.index :name, unique: true
       t.bigint :host_id, null: false, foreign_key: true
       t.index :host_id
+      t.datetime :opendate_at, null: false
 
       t.timestamps
     end
