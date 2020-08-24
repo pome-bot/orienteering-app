@@ -1,0 +1,8 @@
+= render "layouts/header"
+.wrapper
+  .users-edit-contents
+    = link_to destroy_user_session_path, method: :delete do
+      %button<>Sign out
+    = link_to root_path do
+      %button<>Back to top
+= render "layouts/footer"
