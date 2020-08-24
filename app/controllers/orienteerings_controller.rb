@@ -1,7 +1,7 @@
 class OrienteeringsController < ApplicationController
 
   def index
-    @orienteerings = Orienteering.all.order(created_at: "DESC")
+    @orienteerings = Orienteering.where('opendate_at <= ?', Time.current).order(created_at: "DESC")
   end
 
   def show
@@ -46,7 +46,7 @@ class OrienteeringsController < ApplicationController
   private
 
   def orienteering_params
-    params.require(:orienteering).permit(:name).merge(host_id: current_user.id)
+    params.require(:orienteering).permit(:name, :opendate_at).merge(host_id: current_user.id)
   end
 
   def set_latlng(controls)

@@ -8,5 +8,8 @@
   .orienteering-form__field
     = f.label :name, "Orienteering name", class: 'orienteering-form__label'
     = f.text_field :name, class: 'orienteering-form__input', placeholder: 'input orienteering name'
+  .orienteering-form__field.orienteering-form__select
+    = f.label :opendate_at, "Open date", class: 'orienteering-form__label'
+    = f.datetime_select :opendate_at, use_month_numbers: true, class: 'orienteering-form__input'
   .orienteering-form__actions
     = f.submit class: 'orienteering-form__button'

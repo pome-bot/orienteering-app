@@ -10,8 +10,6 @@
     padding: 12px;
     width: 100%;
     &__child{
-      display: flex;
-      justify-content: center;
       overflow: auto;
       table{
         th, td{
@@ -53,8 +51,6 @@
     padding: 12px;
     width: 100%;
     &__child{
-      display: flex;
-      justify-content: center;
       overflow: auto;
       table{
         th, td{
@@ -86,6 +82,7 @@
       button{
         font-size: 18px;
         padding: 12px;
+        width: 160px;
       }
     }
   }
@@ -99,11 +96,29 @@
   form{
     padding-top: 12px;
     .orienteering-form__field{
+      width: 80vw;
+      margin-bottom: 12px;
       label{
         display: block;
       }
       input{
-        width: 80vw;
+        width: 100%;
+      }
+    }
+    .orienteering-form__select{
+      select{
+        display: inline-block;
+        height: 30px;
+        margin-bottom: 4px;
+      }
+      #orienteering_opendate_at_1i, 
+      #orienteering_opendate_at_2i, 
+      #orienteering_opendate_at_3i{
+        width: 30%;
+      }
+      #orienteering_opendate_at_4i, 
+      #orienteering_opendate_at_5i{
+        width: 20%;
       }
     }
     .orienteering-form__actions{
