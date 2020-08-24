@@ -7,12 +7,17 @@
 = render "layouts/footer"
 
 :javascript
+  let lat = parseFloat('#{@lat}');
+  let lng = parseFloat('#{@lng}');
+  let zoomflag = parseFloat('#{@zoomflag}');
+  let zoom;
+  if (zoomflag == "1") {zoom = 16;} else {zoom = 12;}
   let map;
   let marker;
   function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 12,
-      center: { lat: 35.6812584, lng: 139.7667767 }
+      zoom: zoom,
+      center: { lat: lat, lng: lng }
     });
     const geocoder = new google.maps.Geocoder();
     document.getElementById("submit").addEventListener("click", () => {

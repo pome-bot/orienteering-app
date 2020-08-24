@@ -3,6 +3,8 @@ class ControlsController < ApplicationController
   def new
     @orienteering = Orienteering.find(params[:orienteering_id])
     @control = @orienteering.controls.new
+    control_last = @orienteering.controls.order(id: "DESC").limit(1)
+    set_latlng_zoomflag(control_last[0])
   end
 
   def show
@@ -45,6 +47,18 @@ class ControlsController < ApplicationController
 
   def control_params
     params.require(:control).permit(:name, :question, :choice, :answer, :position_lat, :position_lng, :point)
+  end
+
+  def set_latlng_zoomflag(control_last)
+    if control_last.present?
+      @lat = control_last.position_lat
+      @lng = control_last.position_lng
+      @zoomflag = 1
+    else # tokyo sta.
+      @lat = 35.6812584  
+      @lng = 139.7667767
+      @zoomflag = 0
+    end
   end
 
 end
