@@ -1,0 +1,12 @@
+%header.header_orienteering
+  .header_orienteering__contents
+    .left
+      = link_to orienteering_path(orienteering.id) do
+        %h1= orienteering.name
+    .right
+      %h1= "host: #{orienteering.host.name}"
+      - if orienteering.host_id == current_user.id
+        = link_to edit_orienteering_path(orienteering.id), class: "a-tag__icon" do
+          = icon('fas', 'cog', class: "icon-cog")
+
+

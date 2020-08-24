@@ -1,7 +1,7 @@
 class OrienteeringsController < ApplicationController
 
   def index
-    @orienteerings = Orienteering.all.order(created_at: "DESC").limit(10)
+    @orienteerings = Orienteering.all.order(created_at: "DESC")
   end
 
   def show

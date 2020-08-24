@@ -1,0 +1,71 @@
+.control-show-contents{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10px;
+  .control-details{
+    padding: 0 24px;
+    width: 100%;
+    p.indent{
+      width: 100%;
+      margin-left: 12px;
+      margin-bottom: 12px;
+    }
+  }
+  form{
+    padding: 0 24px;
+    width: 100%;
+    .control-form__field{
+      margin-bottom: 10px;
+      input{
+        width: 100%;
+      }
+    }
+    .control-form__actions{
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      input{
+        padding: 8px;
+      }
+    }
+  }
+}
+
+.control-new-contents, .control-edit-contents{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10px;
+  form{
+    padding: 0 24px;
+    width: 100%;
+    .control-form__field{
+      margin-bottom: 10px;
+      label{
+        display: block;
+      }
+      input, textarea{
+        width: 100%;
+      }
+      input.input-gray{
+        background-color: #DDDDDD;
+        border: none;
+      }
+    }
+    .control-form__actions{
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      input{
+        padding: 8px;
+      }
+    }
+  }
+  #floating-panel{
+    margin: 12px 0;
+    input{
+      padding: 8px;
+    }
+  }
+}

@@ -1,46 +1,43 @@
-orienteerings/result
-%br
-%br
-
-%p<>Total result
-%table
-  %tr
-    %th<>no.
-    %th<>user
-    %th<>score
-  - @users.each_with_index do |user, i|
-    %tr
-      %td= i+1
-      %td= user.name
-      %td= @array_user_scores[i]
-
-%br
-%br
-
-%p<>All answers
-
-%table
-  %tr
-    %th<>no.
-    %th<>control
-    %th<>user
-    %th<>answer
-    %th<>created_at
-    %th<>updated_at
-    %th<>point
-  - @controls.each do |control|
-    - control.answers.includes(:user).each_with_index do |answer, i| 
-      %tr
-        %td= i+1
-        %td= control.name
-        %td= answer.user.name
-        %td= answer.answer
-        %td= answer.created_at
-        %td= answer.updated_at
-        - if answer.answer == control.answer
-          %td= control.point
-        - else
-          %td= 0
-        
+= render "layouts/header"
+= render partial: "layouts/header_orienteering", locals: { orienteering: @orienteering }
+.wrapper
+  .orienteering-result-contents
+    %h2<>Results
+    .table-div
+      .table-div__child
+        %table
+          %tr
+            %th<>No.
+            %th<>User
+            %th<>Score
+          - @users.each_with_index do |user, i|
+            %tr
+              %td= i+1
+              %td= user.name
+              %td= @array_user_scores[i]
+    %h2<>All answers
+    .table-div
+      .table-div__child
+        %table
+          %tr
+            %th<>no.
+            %th<>control
+            %th<>user
+            %th<>answer
+            %th<>point
+          - i = 0
+          - @controls.each do |control|
+            - control.answers.includes(:user).each do |answer| 
+              %tr
+                %td= i+1
+                %td= control.name
+                %td= answer.user.name
+                %td= answer.answer
+                - if answer.answer == control.answer
+                  %td= control.point
+                - else
+                  %td= 0
+                - i += 1
+= render "layouts/footer"
 
 

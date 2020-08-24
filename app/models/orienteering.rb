@@ -1,5 +1,7 @@
 class Orienteering < ApplicationRecord
 
+  validates :name, presence: true
+
   has_many :orienteering_users
   has_many :users, through: :orienteering_users
   has_many :controls
@@ -24,6 +26,5 @@ class Orienteering < ApplicationRecord
     end
     return array_user_scores
   end
-
 
 end

@@ -1,53 +1,36 @@
-%script{:defer => "", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyAk3yZOiqYz38KM80EH9LxlDW1mrUAuCBI&callback=initMap&libraries=&v=weekly"}
-
-orienteerings/show
-%br
-
-%p= @orienteering.name
-%p= "host: #{@orienteering.host.name}"
-
-- if @orienteering.host_id == current_user.id
-  = link_to new_orienteering_control_path(@orienteering.id) do
-    %button<>Create control
-
-%br
-%br
-
-
-- @controls.each_with_index do |control, i|
-  = link_to orienteering_control_path(@orienteering.id, control.id) do
-    = i+1
-    - if control.answers.where(user_id: current_user.id).present?
-      %span
-        Done
-    = control.name
-    = control.point
-  %br
-
-%br
-%br
-
-#map
-
-%br
-%br
-
-- if @orienteering.host_id == current_user.id
-  %p<>Edit
-  - @controls.each_with_index do |control, i|
-    = link_to edit_orienteering_control_path(@orienteering.id, control.id) do
-      = i+1
-      = control.name
-    %br
-  %br
-  = link_to "Result", result_orienteering_path(@orienteering.id)
-
-:plain
-  <style>
-    #map{
-      height: 400px;
-    }
-  </style>
+= render "layouts/google_map_api"
+= render "layouts/header"
+= render partial: "layouts/header_orienteering", locals: { orienteering: @orienteering }
+.wrapper
+  .orienteering-show-contents
+    %h2<>Control list
+    .table-div
+      .table-div__child
+        %table
+          %tr
+            %th<>No.
+            %th<>Control
+            %th<>Point
+            %th<>Check
+          - @controls.each_with_index do |control, i|
+            %tr
+              %td= i+1
+              %td.control
+                = link_to orienteering_control_path(@orienteering.id, control.id) do
+                  %span= control.name
+              %td= control.point
+              %td
+                - if control.answers.where(user_id: current_user.id).present?
+                  %span<>Done
+    #map
+    - if @orienteering.host_id == current_user.id
+      .div-only-host
+        %h2<>Host menu
+        = link_to new_orienteering_control_path(@orienteering.id) do
+          %button<>Create control
+        = link_to result_orienteering_path(@orienteering.id) do
+          %button<>Result
+= render "layouts/footer"
 
 :javascript
   let lat = parseFloat('#{@lat}');
@@ -81,7 +64,3 @@ orienteerings/show
       });
     });
   }
-
-
-
-
