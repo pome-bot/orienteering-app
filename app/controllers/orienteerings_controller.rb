@@ -1,7 +1,7 @@
 class OrienteeringsController < ApplicationController
 
   def index
-    @orienteerings = Orienteering.where('opendate_at <= ?', Time.current).order(created_at: "DESC")
+    @orienteerings = Orienteering.where('opendate_at <= ?', Time.current).or(Orienteering.where(host_id: current_user.id)).order(created_at: "DESC")
   end
 
   def show
