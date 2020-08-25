@@ -39,3 +39,11 @@
     }
   }
 }
+
+@media screen and (min-width:1024px) {
+  .devise-reg-new-contents, .devise-session-new-contents{
+    form{
+      width: 600px;
+    }
+  }
+}

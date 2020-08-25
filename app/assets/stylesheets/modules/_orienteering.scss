@@ -162,3 +162,23 @@
     }
   }
 }
+
+@media screen and (min-width:1024px) {
+  .orienteering-new-contents, .orienteering-edit-contents{
+    form{
+      .orienteering-form__field{
+        width: 600px;
+      }
+      .orienteering-form__select{
+        #orienteering_opendate_at_1i, 
+        #orienteering_opendate_at_2i, 
+        #orienteering_opendate_at_3i,
+        #orienteering_opendate_at_4i, 
+        #orienteering_opendate_at_5i{
+          width: 100px;
+        }
+      }
+    }
+  }
+  
+}

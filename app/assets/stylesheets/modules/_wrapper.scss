@@ -13,3 +13,14 @@
   background-color: #FFD5EC;
   padding: 0 8px;
 }
+
+input{
+  padding-left: 2px;
+}
+
+@media screen and (min-width:1024px) {
+  .wrapper, header, footer, .notification{
+    width: 1024px;
+    margin: 0 auto;
+  }
+}

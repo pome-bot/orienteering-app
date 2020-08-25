@@ -72,3 +72,17 @@
     }
   }
 }
+
+@media screen and (min-width:1024px) {
+  .control-show-contents, .control-new-contents, .control-edit-contents{
+    .control-details{
+      padding: 0;
+      width: 600px;
+    }
+    form{
+      padding: 0;
+      width: 600px;
+    }
+  }
+  
+}
