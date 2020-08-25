@@ -9,6 +9,7 @@
     = javascript_include_tag 'application' #add
     %meta{ name: 'viewport', content: 'initial-scale=1.0, user-scalable=no' }
     %script{src: "https://polyfill.io/v3/polyfill.min.js?features=default"}
+    = favicon_link_tag
   %body
     = render 'layouts/notifications' #add
     = yield
