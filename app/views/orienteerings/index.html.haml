@@ -9,6 +9,7 @@
             %th<>ID
             %th<>Orienteering
             %th<>Host
+            %th<>Status
           - @orienteerings.each do |o|
             %tr
               %td= o.id
@@ -16,6 +17,10 @@
                 = link_to orienteering_path(o.id) do
                   %span= o.name
               %td= o.host.name
+              - if o.opendate_at <= Time.current
+                %td<>Open
+              - else
+                %td<>Close
     = link_to new_orienteering_path do
       %button<>create orienteering
 = render "layouts/footer"
