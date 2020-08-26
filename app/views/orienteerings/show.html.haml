@@ -23,6 +23,7 @@
                 - if control.answers.where(user_id: current_user.id).present?
                   %span<>Done
     #map
+    .geolocation_message
     - if @orienteering.host_id == current_user.id
       .div-only-host
         %h2<>Host menu
@@ -90,9 +91,23 @@
   }
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-                          'Error: The Geolocation service failed.' :
-                          'Error: Your browser doesn\'t support geolocation.');
-    infoWindow.open(map);
+    let message;
+    if (browserHasGeolocation) {
+      message = 'Error: The Geolocation service failed.';
+    } else {
+      message = 'Error: Your browser doesn\'t support geolocation.';
+    }
+    let html = buildHTML(message);
+    $('.geolocation_message').append(html);
+
+    //  infoWindow.setPosition(pos);
+    //  infoWindow.setContent(browserHasGeolocation ?
+    //                        'Error: The Geolocation service failed.' :
+    //                        'Error: Your browser doesn\'t support geolocation.');
+    //  infoWindow.open(map);
+  }
+
+  function buildHTML(message){
+    let html = `<p>${message}</p>`;
+    return html;
   }

@@ -26,6 +26,7 @@
       .control-form__actions
         = f.submit "Submit", class: 'control-form__button'
     #map
+    .geolocation_message
 = render "layouts/footer"
 
 :javascript
@@ -68,9 +69,23 @@
   }
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-                          'Error: The Geolocation service failed.' :
-                          'Error: Your browser doesn\'t support geolocation.');
-    infoWindow.open(map);
+    let message;
+    if (browserHasGeolocation) {
+      message = 'Error: The Geolocation service failed.';
+    } else {
+      message = 'Error: Your browser doesn\'t support geolocation.';
+    }
+    let html = buildHTML(message);
+    $('.geolocation_message').append(html);
+
+    //  infoWindow.setPosition(pos);
+    //  infoWindow.setContent(browserHasGeolocation ?
+    //                        'Error: The Geolocation service failed.' :
+    //                        'Error: Your browser doesn\'t support geolocation.');
+    //  infoWindow.open(map);
+  }
+
+  function buildHTML(message){
+    let html = `<p>${message}</p>`;
+    return html;
   }
