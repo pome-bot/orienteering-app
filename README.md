@@ -5,6 +5,8 @@
 <div align="center">
   <img width="370" alt="ol_01" src="https://user-images.githubusercontent.com/61574277/91251892-5f1c7580-e797-11ea-87a7-eddf8abbce4f.png">
 
+<br>
+
   <img width="369" alt="ol_02" src="https://user-images.githubusercontent.com/61574277/91251898-6774b080-e797-11ea-9ecd-97b4f9b87c37.png">
 </div>
 
@@ -34,13 +36,13 @@
 
 ### **https://peaceful-brushlands.ml**  
 
-<p>Test account:</p>
-<p style="margin-left: 8px;">Host account:</p>
-<p style="margin-left: 16px;">email: user1@user1</p>
-<p style="margin-left: 16px;">password: useruser</p>
-<p style="margin-left: 8px;">Participant account:</p>
-<p style="margin-left: 16px;">email: user2@user2</p>
-<p style="margin-left: 16px;">password: useruser</p>
+Test account:
+  - Host account:
+    - email: user1@user1
+    - password: useruser
+  - Participant account:
+    - email: user2@user2
+    - password: useruser
 
 <br><br>
 
