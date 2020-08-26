@@ -5,8 +5,8 @@
 <div align="center">
   <img width="370" alt="ol_01" src="https://user-images.githubusercontent.com/61574277/91251892-5f1c7580-e797-11ea-87a7-eddf8abbce4f.png">
 
-<br>
-<br>
+  <br>
+  <br>
 
   <img width="369" alt="ol_02" src="https://user-images.githubusercontent.com/61574277/91251898-6774b080-e797-11ea-9ecd-97b4f9b87c37.png">
 </div>
@@ -133,7 +133,7 @@ Test account:
 |------|----|-------|
 |name|string|null: false, unique: true|
 |host_id|integer|null: false|
-|opendate_at|datetime|null: false, unique: true|
+|opendate_at|datetime|null: false|
 #### Association
 - has_many :orienteering_users
 - has_many :users, through: :orienteering_users
