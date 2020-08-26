@@ -1,6 +1,7 @@
 class Orienteering < ApplicationRecord
 
   validates :name, presence: true
+  validates :opendate_at, presence: true
 
   has_many :orienteering_users
   has_many :users, through: :orienteering_users
