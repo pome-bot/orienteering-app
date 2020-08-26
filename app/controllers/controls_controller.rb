@@ -29,6 +29,8 @@ class ControlsController < ApplicationController
     if @control.save
       redirect_to orienteering_path(@orienteering.id), notice: "Control was created."
     else
+      control_last = @orienteering.controls.order(id: "DESC").limit(1)
+      set_latlng_zoomflag(control_last[0])
       render :new
     end
   end

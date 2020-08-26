@@ -1,3 +1,9 @@
+- if control.errors.any?
+  .control__errors.error-message-box
+    %h2= "#{control.errors.full_messages.count}件のエラーが発生しました。"
+    %ul
+      - control.errors.full_messages.each do |message|
+        %li= message
 = form_with model: [orienteering, control], local: true do |f|
   .control-form__field
     = f.label :name, "Control name", class: 'control-form__label'

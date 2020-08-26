@@ -13,6 +13,12 @@
       %p.indent.choice= @control.choice
       %p= "Point:"
       %p.indent= @control.point
+    - if @answer.errors.any?
+      .answer__errors.error-message-box
+        %h2= "#{@answer.errors.full_messages.count}件のエラーが発生しました。"
+        %ul
+          - @answer.errors.full_messages.each do |message|
+            %li= message
     = form_with model: [@orienteering, @control, @answer], local: true do |f|
       .control-form__field
         = f.label :answer, "Answer", class: 'control-form__label'
