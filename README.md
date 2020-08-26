@@ -3,11 +3,12 @@
 <h2 align="center">Orienteering App for Recreation</h2>
 
 <div align="center">
-  <img width="370" alt="ol_01" src="https://user-images.githubusercontent.com/61574277/91251892-5f1c7580-e797-11ea-87a7-eddf8abbce4f.png">
+  <img width="320" alt="ol_01" src="https://user-images.githubusercontent.com/61574277/91251892-5f1c7580-e797-11ea-87a7-eddf8abbce4f.png">
 
 <br>
+<br>
 
-  <img width="369" alt="ol_02" src="https://user-images.githubusercontent.com/61574277/91251898-6774b080-e797-11ea-9ecd-97b4f9b87c37.png">
+  <img width="320" alt="ol_02" src="https://user-images.githubusercontent.com/61574277/91251898-6774b080-e797-11ea-9ecd-97b4f9b87c37.png">
 </div>
 
 <br><br><br>
@@ -58,7 +59,7 @@ Test account:
 
 <!-- ![ol_04](https://user-images.githubusercontent.com/61574277/91252340-65f7b800-e798-11ea-81da-c73acff261b5.gif) -->
 
-<p align="center"><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/61574277/91252340-65f7b800-e798-11ea-81da-c73acff261b5.gif"><img src="https://user-images.githubusercontent.com/61574277/91252340-65f7b800-e798-11ea-81da-c73acff261b5.gif" alt="ol_04" style="max-width:100%;"></a></p>
+<p align="center"><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/61574277/91252340-65f7b800-e798-11ea-81da-c73acff261b5.gif"><img src="https://user-images.githubusercontent.com/61574277/91252340-65f7b800-e798-11ea-81da-c73acff261b5.gif" alt="ol_04" style="max-width:80%;"></a></p>
 
 ---
 
@@ -66,7 +67,7 @@ Test account:
 
 <!-- ![ol_03](https://user-images.githubusercontent.com/61574277/91252695-09e16380-e799-11ea-8c52-1731042790b5.gif) -->
 
-<p align="center"><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/61574277/91252695-09e16380-e799-11ea-8c52-1731042790b5.gif"><img src="https://user-images.githubusercontent.com/61574277/91252695-09e16380-e799-11ea-8c52-1731042790b5.gif" alt="ol_03" style="max-width:100%;"></a></p>
+<p align="center"><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/61574277/91252695-09e16380-e799-11ea-8c52-1731042790b5.gif"><img src="https://user-images.githubusercontent.com/61574277/91252695-09e16380-e799-11ea-8c52-1731042790b5.gif" alt="ol_03" style="max-width:80%;"></a></p>
 
 <br>
 
