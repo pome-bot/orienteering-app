@@ -35,7 +35,7 @@
 
 ## App URL
 
-### **https://peaceful-brushlands.ml**  
+### **https://rocky-reaches.cf**  
 
 Test account:
   - Host account:
@@ -61,6 +61,11 @@ Test account:
 
 <p align="center"><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/61574277/91252340-65f7b800-e798-11ea-81da-c73acff261b5.gif"><img src="https://user-images.githubusercontent.com/61574277/91252340-65f7b800-e798-11ea-81da-c73acff261b5.gif" alt="ol_04" style="max-width:100%;"></a></p>
 
+- 座標の設定方法は以下のとおり。
+  - 検索することで、おおまかな位置に移動できる。（GoogleのGeocoding APIを利用している。）
+  - Google mapを動かすことで、位置の調整が可能である。
+  - マーカーのある場所（地図の中央）が、コントロールの設定される場所となる。
+
 ---
 
 <h3 align="center">- Send answer -</h3>
@@ -71,53 +76,33 @@ Test account:
 
 <br>
 
-- リーグが作成されるとリーグ表が作成される。
-- スコアが送信されると、そのスコアが反映される。
-- デフォルトでは、以下の設定となっている。
-  - はじめは並びは名前順
-  - スコアがあると、並びはランク順
-  - 勝ち点は、勝ち：3、負け：0、引き分け：1
-- ランクは以下のとおりにつけられる。
-  - 勝ち点の高いほうが上
-  - 勝ち点が同じ場合は、得失点差の高いほうが上
-  - 勝ち点、得失点差が同じで、それが2名だった場合、その2名の対戦の勝者が上
-  - 勝ち点、得失点差が同じで、それが2名だった場合で、その2名の対戦が引き分けのときは同ランク
-  - 勝ち点、得失点差が同じで、それが3名以上だった場合、同ランク
-- リーグの設定で以下のことが可能
-  - 勝ち点の設定
-  - 並び順の設定（名前順、ランク順）
-- スコアが表示される箇所をクリックすると、スコアフォームにデータが入る。
-- スコアの訂正は何度でも可能
-- スコアをリセットしたい場合は、対戦者のみを送信することでリセットできる。
+- 参加者はコントロール毎に回答を送信できる。
+- 送信方法は以下のとおりであり、非常にシンプルである。
+  - コントロールのページを開く。
+  - 回答欄に回答を入力する。
+  - 送信ボタンを押す。
 
 ---
 
-<h3 align="center">- Recommended order -</h3>
+<h3 align="center">- New control -</h3>
 
 <div align="center">
-  <img width="373" alt="9cc21b627b800db2614a47e6b367c5a5" src="https://user-images.githubusercontent.com/61574277/89482914-dcc31600-d7d5-11ea-92ee-480448924a48.png">
+  <img width="371" alt="ol_05" src="https://user-images.githubusercontent.com/61574277/91275421-1b3b6780-e7bb-11ea-865b-3c50fe11435d.png">
 </div>
 <br>
 
-- リーグが作成されるとおすすめの試合順が作成される。
-- このおすすめの試合順の特徴は以下のとおり。
-  - メンバーそれぞれ1試合ある組み合わせを1ラウンドとしている。
-  - ラウンド毎に試合相手が変わる。
-  - 最後までラウンドを行うと、全試合できることとなる。
-  - メンバーの数が偶数のときラウンド数：（メンバーの数 - 1）、奇数のときラウンド数：メンバーの数 
-  - メンバーの数が奇数のとき、それぞれのラウンドで試合の無いメンバーが1人いる。
-  - 試合間隔は可能な限り公平となるようになっている。
-  - 左側を先攻、右側を後攻と決めることで、バランスよく試合することができる。
-  - それぞれの試合の箇所をクリックすると、スコアフォームにデータが入る。
-  - リーグ作成ごとに作成される試合順はランダムである。
+- コントロールには名前、質問、回答候補、回答、ポイント、座標を設定できる。
+- 1つのオリエンテーリングに複数のコントロールを設定できる。
   
 <br><br>
-
  
 ## Development environment
 ### Tools
 - Ruby
 - Ruby on Rails
+- Google Maps Platform
+  - Maps JavaScript API
+  - Geocoding API
 - mysql
 - Heroku
 - Cloud Flare
@@ -130,97 +115,64 @@ Test account:
 - RubyGems version	3.0.3
 - Rack version	2.2.3
 
-
 ## Database design
-## users table (gem: devise)
+### users table (gem: devise)
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, unique: true|
-|image|text||
+|name|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|deleted_at|datetime||
-### Association
-- has_many :groups_users
-- has_many :groups, through: :groups_users
-- has_many :leagues_users
-- has_many :leagues, through: :leagues_users
-- has_many :games
-- has_many :messages
+#### Association
+- has_many :orienteering_users
+- has_many :orienteerings, through: :orienteering_users
+- has_many :host_orienteerings, foreign_key: "host_id", class_name: "Orienteering", dependent: :destroy
+- has_many :answers
 
-## groups table
+### orienteerings table
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
-### Association
-- has_many :groups_users
-- has_many :users, through: :groups_users, dependent: :destroy
-- has_many :leagues, dependent: :destroy
+|host_id|integer|null: false|
+|opendate_at|datetime|null: false, unique: true|
+#### Association
+- has_many :orienteering_users
+- has_many :users, through: :orienteering_users
+- has_many :controls
+- belongs_to :host, class_name: "User"
 
-## groups_users table
+### orienteering_users table
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :group
+|orienteering_id|integer|null: false, foreign_key: true|
+#### Association
+- belongs_to :orienteering
 - belongs_to :user
 
-## leagues table
+### controls table
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, unique: true|
-|group_id|integer|null: false, foreign_key: true|
-|win_point|integer|null: false, default: 3|
-|lose_point|integer|null: false, default: 0|
-|even_point|integer|null: false, default: 1|
-|order_flag|integer|null: false, default: 0|
-### Association
-- belongs_to :group
-- has_many :leagues_users
-- has_many :users, through: :leagues_users, dependent: :destroy
-- has_many :games, dependent: :destroy
-- has_many :messages, dependent: :destroy
+|orienteering_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
+|question|string|null: false|
+|choice|string||
+|answer|string|null: false|
+|position_lat|string|null: false|
+|position_lng|string|null: false|
+|point|integer|null: false|
+#### Association
+- has_many :answers
+- belongs_to :orienteering
 
-## leagues_users table
+### answers table
 |Column|Type|Options|
 |------|----|-------|
+|control_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
-|league_id|integer|null: false, foreign_key: true|
-|order|integer||
-|won|integer||
-|lost|integer||
-|even|integer||
-|point|integer||
-|difference|integer||
-|rank|integer||
-### Association
+|answer|string|null: false|
+#### Association
 - belongs_to :user
-- belongs_to :league
-
-## games table
-|Column|Type|Options|
-|------|----|-------|
-|league_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-|user_score|integer||
-|user2_score|integer||
-|order|integer|null: false|
-### Association
-- belongs_to :user
-- belongs_to :league
-
-## messages table
-|Column|Type|Options|
-|------|----|-------|
-|league_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-|text|string|null: false|
-### Association
-- belongs_to :league
-- belongs_to :user
-
-
+- belongs_to :control
 
 ## License
 
