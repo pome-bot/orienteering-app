@@ -24,13 +24,18 @@
           background-color: #FFDBC9;
           padding: 0;
           a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
             padding: 8px;
           }
         }
       }
     }
   }
-  a{
+  a.a-tag-button{
     margin-top: 12px;
     margin-bottom: 24px;
     button{
@@ -67,6 +72,11 @@
           background-color: #FFDBC9;
           padding: 0;
           a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
             padding: 8px;
           }
         }
