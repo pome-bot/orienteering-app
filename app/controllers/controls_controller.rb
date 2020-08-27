@@ -55,7 +55,7 @@ class ControlsController < ApplicationController
 
   def check_curernt_user
     unless @orienteering.host_id == current_user.id
-      redirect_to orienteering_path(@orienteering.id)
+      redirect_to orienteering_path(@orienteering.id), notice: "You don\'t have access authority."
     end
   end
 
